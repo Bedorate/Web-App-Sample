@@ -114,6 +114,6 @@ export default {
 }
 
 .open {
-  width: 144px;
+  width: 160px;
 }
 </style>
