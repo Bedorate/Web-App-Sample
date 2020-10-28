@@ -1,8 +1,8 @@
 <template>
   <div>
     <header-logo />
-    <div class="about">
-    <h1>This is an about page</h1>
+    <div class="tos">
+    <h1>利用規約</h1>
   </div>
   </div>
   

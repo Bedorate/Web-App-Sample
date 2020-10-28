@@ -1,11 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Top from '../views/Top.vue'
+import TermsOfService from '../views/TermsOfService.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Top',
+    component: Top //Homeってコンポーネントを呼び出しますよ
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Home //Homeってコンポーネントを呼び出しますよ
   },
   {
     path: '/about',
@@ -14,7 +21,12 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  },
+  {
+    path: '/tos',
+    name: 'tos',
+    component: TermsOfService 
+  },
 ]
 
 const router = createRouter({

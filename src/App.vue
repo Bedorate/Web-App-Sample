@@ -1,30 +1,55 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <div class="app-wrapper"  v-if="$route.path !== '/'" >
+      <global-header />
+      <div class="app-content">
+        <global-aside />
+        <router-view />
+      </div>
+    </div>
+    <router-view v-else />
   </div>
-  <router-view/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import GlobalHeader from "@/components/layouts/GlobalHeader.vue"
+import GlobalAside from "@/components/layouts/GlobalAside.vue"
+export default {
+  name: "App",
+  components: {
+    GlobalHeader,
+    GlobalAside,
+  }
+}
+</script>
+
+<style lang="scss">
+*{
+  box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+html, 
+body, 
+#app,
+.app{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  .app-wrapper{
+    height: 100%;
+    width: 100%;
+    .app-content{
+    height: calc(100% - 72px);
+    display: flex;
+    position: relative;
+    top: 72px;
+     .page{
+    overflow-x: hidden;
+    overflow: auto;
+    height: 100%;
+    flex: 1;
+    } 
+   }
+ }
 }
 </style>
